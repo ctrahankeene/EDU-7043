@@ -13,7 +13,7 @@ y<-ifelse(test = is.na(y)==T, yes = 2.5, no = y)
 #Print y with new value.
 print(y)
 #Load data set and print first ten state abbreviations
-tbl<-read.csv("https://raw.githubusercontent.com/mattdemography/EDU_7043/master/Data/Assignment_1.csv")
+tbl<-read.csv("https://raw.githubusercontent.com/mattdemography/EDU_7043/master/Data/Assignment_1.csv", stringsAsFactors = F)
 tbl[1:10,1]
 #Find the mean murder rate in the US
 mean(tbl[1:50, 3])
@@ -26,7 +26,11 @@ subdf = subset(df,State=="CT" | State=="MA" | State== "ME" | State=="NH" | State
 #Find mean murder rate in New England
 mean(subdf[1:6, 3])
 #Bonus: Find mean violent crime rate in US
-df<-ifelse(test = is.na(df$Vcrime)==T, yes = 555, no = df$Vcrime)
+#convert data in column to numeric values instead of character values
+df<-as.numeric(df)
+#replace NA with value from NE data base
+df<-ifelse(test = is.na(df)==T, yes = 555, no = df)
+#Find mean Violent crime in US
 mean(df)
 
 
