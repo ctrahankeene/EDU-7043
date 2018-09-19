@@ -16,6 +16,8 @@ print(y)
 tbl<-read.csv("https://raw.githubusercontent.com/mattdemography/EDU_7043/master/Data/Assignment_1.csv", stringsAsFactors = F)
 tbl[1:10,1]
 #Find the mean murder rate in the US
+
+#Was looking for all of US with DC
 mean(tbl[1:50, 3])
 #Find median murder rate in the US
 median(tbl[1:50, 3])
@@ -29,8 +31,12 @@ mean(subdf[1:6, 3])
 #convert data in column to numeric values instead of character values
 df<-as.numeric(df)
 #replace NA with value from NE data base
+
+#I'm not sure what the 555 is doing here
 df<-ifelse(test = is.na(df)==T, yes = 555, no = df)
 #Find mean Violent crime in US
 mean(df)
 
+#You do a good job commenting what you are doing in your code. This looks good.
+#100 out of 100
 
